@@ -1,0 +1,123 @@
+version: '3'
+
+services:
+  php-ubuntu:
+    container_name: php-ubuntu
+    image: php-ubuntu
+    build:
+      context: .
+      dockerfile: ./dockers/php-ubuntu/Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./src/.env
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+          cpus: '2'
+  php-fpm-nginx:
+    container_name: php-fpm-nginx
+    image: php-fpm-nginx
+    build:
+      context: .
+      dockerfile: ./dockers/php-fpm-nginx/Dockerfile
+    ports:
+      - "8001:80"
+    env_file:
+      - ./src/.env
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+          cpus: '2'
+  php-fpm-apache:
+    container_name: php-fpm-apache
+    image: php-fpm-apache
+    build:
+      context: .
+      dockerfile: ./dockers/php-fpm-apache/Dockerfile
+    ports:
+      - "8002:80"
+    env_file:
+      - ./src/.env
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+          cpus: '2'
+  php-franken:
+    container_name: php-franken
+    image: php-franken
+    build:
+      context: .
+      dockerfile: ./dockers/php-franken/Dockerfile
+    ports:
+      - "8003:80"
+    env_file:
+      - ./src/.env
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+          cpus: '2'
+  php-franken-multiworker:
+    container_name: php-franken-multiworker
+    image: php-franken-multiworker
+    build:
+      context: .
+      dockerfile: ./dockers/php-franken-multiworker/Dockerfile
+    ports:
+      - "8004:8000"
+    env_file:
+      - ./src/.env
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+          cpus: '2'
+  php-roadrunner:
+    container_name: php-roadrunner
+    image: php-roadrunner
+    build:
+      context: .
+      dockerfile: ./dockers/php-roadrunner/Dockerfile
+    ports:
+      - "8005:8000"
+    env_file:
+      - ./src/.env
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+          cpus: '2'
+  php-swoole:
+    container_name: php-swoole
+    image: php-swoole
+    build:
+      context: .
+      dockerfile: ./dockers/php-swoole/Dockerfile
+    ports:
+      - "8006:8000"
+    env_file:
+      - ./src/.env
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+          cpus: '2'
+  php-ngx:
+    container_name: php-ngx
+    image: php-ngx
+    build:
+      context: .
+      dockerfile: ./dockers/php-ngx/Dockerfile
+    ports:
+      - "8008:8000"
+    env_file:
+      - ./src/.env
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+          cpus: '2'

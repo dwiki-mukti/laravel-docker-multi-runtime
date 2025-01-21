@@ -1,0 +1,58 @@
+# Laravel specific files
+.env
+.env.* 
+!.env.example
+
+# Node modules and dependencies
+node_modules
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+
+# Composer dependencies
+/vendor
+
+# Log files
+storage/*.log
+storage/logs/*
+*.log
+
+# Cache
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+
+# Build directories
+/public/storage
+/public/hot
+/public/*.map
+/public/mix-manifest.json
+
+# IDE and editor-specific files
+*.idea
+*.vscode
+*.DS_Store
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Docker-specific files
+docker-compose.override.yml
+Dockerfile*
+docker-compose*
+.dockerignore
+*.md
+
+# Git
+.git
+.gitignore
+
+# Adonis default .gitignore ignores
+node_modules
+build
+coverage
+.vscode
+.DS_STORE
+tmp
