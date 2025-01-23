@@ -14,8 +14,8 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2048M
-          cpus: '2'
+          memory: 4056M
+          cpus: '16'
   php-fpm-nginx:
     container_name: php-fpm-nginx
     image: php-fpm-nginx
@@ -29,8 +29,8 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2048M
-          cpus: '2'
+          memory: 4056M
+          cpus: '16'
   php-fpm-apache:
     container_name: php-fpm-apache
     image: php-fpm-apache
@@ -44,8 +44,8 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2048M
-          cpus: '2'
+          memory: 4056M
+          cpus: '16'
   php-franken:
     container_name: php-franken
     image: php-franken
@@ -59,8 +59,8 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2048M
-          cpus: '2'
+          memory: 4056M
+          cpus: '16'
   php-franken-multiworker:
     container_name: php-franken-multiworker
     image: php-franken-multiworker
@@ -74,8 +74,8 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2048M
-          cpus: '2'
+          memory: 4056M
+          cpus: '16'
   php-roadrunner:
     container_name: php-roadrunner
     image: php-roadrunner
@@ -89,8 +89,8 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2048M
-          cpus: '2'
+          memory: 4056M
+          cpus: '16'
   php-swoole:
     container_name: php-swoole
     image: php-swoole
@@ -104,14 +104,29 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2048M
-          cpus: '2'
-  php-ngx:
-    container_name: php-ngx
-    image: php-ngx
+          memory: 4056M
+          cpus: '16'
+  php-nginx-unit:
+    container_name: php-nginx-unit
+    image: php-nginx-unit
     build:
       context: .
-      dockerfile: ./dockers/php-ngx/Dockerfile
+      dockerfile: ./dockers/php-nginx-unit/Dockerfile
+    ports:
+      - "8007:80"
+    env_file:
+      - ./src/.env
+    deploy:
+      resources:
+        limits:
+          memory: 4056M
+          cpus: '16'
+  php-nginx-embed:
+    container_name: php-nginx-embed
+    image: php-nginx-embed
+    build:
+      context: .
+      dockerfile: ./dockers/php-nginx-embed/Dockerfile
     ports:
       - "8008:8000"
     env_file:
@@ -119,5 +134,5 @@ services:
     deploy:
       resources:
         limits:
-          memory: 2048M
-          cpus: '2'
+          memory: 4056M
+          cpus: '16'

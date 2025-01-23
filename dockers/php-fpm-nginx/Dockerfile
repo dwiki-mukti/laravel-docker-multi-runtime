@@ -1,14 +1,11 @@
 FROM php:8.3-fpm-alpine AS base
 
-RUN apk add bash
-RUN apk add libpng-dev
-RUN apk add libjpeg-turbo-dev 
-RUN apk add freetype-dev
-RUN apk add libzip-dev
-RUN apk add libxml2-dev
-RUN apk add oniguruma-dev
-RUN apk add curl git
-RUN apk add libwebp-dev
+RUN apk add bash curl git \
+    libpng-dev libwebp-dev libjpeg-turbo-dev \
+    freetype-dev \
+    libzip-dev \
+    libxml2-dev \
+    oniguruma-dev
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --enable-gd
 RUN docker-php-ext-install gd mbstring xml zip opcache

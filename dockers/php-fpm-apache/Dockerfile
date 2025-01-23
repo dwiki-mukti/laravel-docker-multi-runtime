@@ -1,20 +1,12 @@
 FROM php:8.3-fpm-alpine AS base
 
-RUN apk add --no-cache \
-    bash \
-    libpng-dev \
-    libjpeg-turbo-dev \
+RUN apk add bash \
+    libpng-dev libjpeg-turbo-dev libwebp-dev \
     freetype-dev \
     libzip-dev \
     libxml2-dev \
-    libwebp-dev \
     oniguruma-dev \
-    apache2 \
-    apache2-utils \
-    apache2-proxy \
-    apache2-proxy-html \
-    apache2-ssl \
-    nano
+    apache2 apache2-utils apache2-proxy apache2-proxy-html apache2-ssl
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --enable-gd && \
     docker-php-ext-install gd mbstring xml zip opcache

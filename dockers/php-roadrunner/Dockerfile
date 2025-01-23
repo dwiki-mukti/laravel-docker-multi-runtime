@@ -1,7 +1,8 @@
 FROM php:8.3-cli
 
 RUN docker-php-ext-install pcntl sockets
-RUN apt-get update && apt-get install git -y
+RUN apt update && apt install -yqq \
+    git zip unzip  
 
 WORKDIR /app
 COPY --chown=www-data:www-data ./src /app
